@@ -263,3 +263,6 @@ let g:auto_save = 1
  autocmd vimenter * if !argc() | NERDTree | endif
  map <C-n> :NERDTreeToggle<CR>
  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+ "code indented
+ map ff gg=G<CR>
