@@ -266,3 +266,5 @@ let g:auto_save = 1
 
  "code indented
  map ff gg=G<CR>
+ imap ff <esc>gg=G<CR>
+ imap pp <esc>p
