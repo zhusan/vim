@@ -1,7 +1,7 @@
 Install
 1. clone the repo
 
-        git clone git@github.com:zhusan/vim.git
+        git clone https://github.com/zhusan/vim.git
 
 1. rename it
 
