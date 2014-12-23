@@ -269,3 +269,6 @@ let g:auto_save = 1
  imap fff <esc>gg=G<CR>
  imap ppp <esc>p
  set listchars=trail:-,tab:--
+ set fileformats=unix
+ nnoremap <leader>d :!~/.vim/dict <cword><CR>
+ vnoremap <leader>d y:!~/.vim/dict <c-r>"<CR>
