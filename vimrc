@@ -3,6 +3,7 @@
 " CtrlP
 "
 """"""""""""""""""""""""""""""""""""""""
+set mouse=a
 let g:ctrlp_map = ',,'
 let g:ctrlp_open_multiple_files = 'v'
 
@@ -271,4 +272,15 @@ let g:auto_save = 1
  set listchars=trail:-,tab:--
  set fileformats=unix
  nnoremap <leader>d :!~/.vim/dict <cword><CR>
- vnoremap <leader>d y:!~/.vim/dict <c-r>"<CR>
+
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'kchmck/vim-coffee-script'
+
+syntax enable
+filetype plugin indent on
