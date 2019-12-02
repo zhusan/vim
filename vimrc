@@ -1,17 +1,53 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" ruby on rails
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
+Plugin 'ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'delimitMate.vim'
+Plugin 'gnupg.vim'
+Plugin 'matchit.zip'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'surround.vim'
+Plugin 'tComment'
+Plugin 'vim-auto-save'
+Plugin 'ryanoasis/vim-devicons'
+
+" go
+Plugin 'fatih/vim-go'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set encoding=utf8
+set guifont=DroidSansMono_Nerd_Font:h11
 """""""""""""""""""""""""""""""""""""""""
 "
 " CtrlP
 "
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 set mouse=a
 let g:ctrlp_map = ',,'
 let g:ctrlp_open_multiple_files = 'v'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git)$',
-  \ 'file': '\v\.(log|jpg|png|jpeg)$',
-  \ }
+      \ 'dir': '\v[\/]\.(git)$',
+      \ 'file': '\v\.(log|jpg|png|jpeg)$',
+      \ }
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -27,7 +63,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " Use Ctrl-c to comment and uncomment, cool
-  map <c-c> gcc
+map <c-c> gcc
 
 """""""""""""""""""""""""""""""""""""""""
 "
@@ -44,7 +80,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " vim run in Mac terminal, does not have syntax highlighting without this
-  syntax on
+syntax on
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -53,7 +89,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " when you have .md file, default ft=modula2, thus wrong highlighting
-  autocmd FileType modula2 set ft=
+autocmd FileType modula2 set ft=
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -63,7 +99,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " doorkeeper of all my vim plugins
-  call pathogen#infect()
+call pathogen#infect()
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -72,7 +108,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " sudo apt-get install ack-grep, on ubuntu box
-  map ,k :Ack <cword><ENTER>
+map ,k :Ack <cword><ENTER>
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -82,8 +118,8 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " now if you have spaces at end of lines, you get notified
-  set list
-  set listchars=trail:+
+set list
+set listchars=trail:+
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -93,7 +129,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " for insert mode
-  set pastetoggle=<f2>
+set pastetoggle=<f2>
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -103,7 +139,7 @@ let g:auto_save = 1
 
 " Enable filetype plugin
 " for i_Ctrl-X_Ctrl-O
-  filetype plugin on
+filetype plugin on
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -114,21 +150,21 @@ let g:auto_save = 1
 " check :h filetype-indent-on
 " have proper indent level based on syntax
 " `=` also depends on this to work
-  filetype indent on
+filetype indent on
 
 " if you use <tab> to indent the code
 " vim use tabs other than spaces for the indentaion
 " expandtab will turn a tab into 'tabstop' spaces
-  set expandtab
-  set tabstop=2
+set expandtab
+set tabstop=2
 
 
 " if you use '>' or <c-t> to indent the code, this matters
 " this default to 8
-  set shiftwidth=2
+set shiftwidth=2
 
 " you can also set different indent level for other languages
-  autocmd FileType c setlocal shiftwidth=4 tabstop=4
+autocmd FileType c setlocal shiftwidth=4 tabstop=4
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -136,10 +172,10 @@ let g:auto_save = 1
 "
 """"""""""""""""""""""""""""""""""""""""
 
-  set hidden "in order to switch between buffers with unsaved change
-  map <s-tab> :bp<cr>
-  map <tab> :bn<cr>
-  map ,bd :bd<cr>
+set hidden "in order to switch between buffers with unsaved change
+map <s-tab> :bp<cr>
+map <tab> :bn<cr>
+map ,bd :bd<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -162,7 +198,7 @@ let g:auto_save = 1
 "
 """"""""""""""""""""""""""""""""""""""""
 
-  map ,f :q!<CR>
+map ,f :q!<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -172,10 +208,10 @@ let g:auto_save = 1
 
 " I need a fake ~/.vimrc: runtime vimrc
 " http://www.derekwyatt.org/vim/the-vimrc-file/my-vimrc-file/
-  map ,e :e ~/.vim/vimrc<CR>
+map ,e :e ~/.vim/vimrc<CR>
 " When vimrc is edited, reload it
 " copied from http://amix.dk/vim/vimrc.html
-  autocmd! bufwritepost vimrc source ~/.vim/vimrc
+autocmd! bufwritepost vimrc source ~/.vim/vimrc
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -186,7 +222,7 @@ let g:auto_save = 1
 
 " set quick escape from insert mode, and now I can go without arrow keys and
 " use j and k to move around in insert mode
-  imap jj <esc>
+imap jj <esc>
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -195,7 +231,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " use <C-D> with this to get a list
-  set wildmenu
+set wildmenu
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -204,7 +240,7 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""
 
 " i_CTRL_X_K
-  set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
+set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -213,11 +249,11 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " ic also has effect on dictionary settings
-  set ic
+set ic
 "set hlsearch
-  set incsearch
+set incsearch
 "set line number
-  set nu
+set nu
 """"""""""""""""""""""""""""""""""""""""
 "
 " status line
@@ -225,11 +261,11 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " Set the status line the way i like it
-  set statusline=%F:\ %l
+set statusline=%F:\ %l
 
 " tell VIM to always put a status line in, even if there is only one window
 " this means I can also see what is the filename I am in, finally!
-  set laststatus=2
+set laststatus=2
 
 """"""""""""""""""""""""""""""""""""""""
 "
@@ -238,49 +274,66 @@ let g:auto_save = 1
 """"""""""""""""""""""""""""""""""""""""
 
 " have nice $ sign when you use `cw`
-  set cpoptions+=$
+set cpoptions+=$
 
 " Do not know how to use autocmd yet, so the following line not working
 " autocmd FileType text setlocal textwidth=78
-  set textwidth=78
+" set textwidth=78
 
 
 " get rid of the silly characters in window separators
-  set fillchars=""
+set fillchars=""
 
 " hello-world is now one world
-  set isk+=-
+set isk+=-
 
 " change cwd to current buffer
-  nmap <silent> ,cd :lcd %:h<CR>
+nmap <silent> ,cd :lcd %:h<CR>
 
- """""""""""""""""""""""""""""""""""""""
- "
- "             nerdtree
- "
- """""""""""""""""""""""""""""""""""""""
- set mouse=a
- autocmd vimenter * NERDTree
- autocmd vimenter * if !argc() | NERDTree | endif
- map <C-n> :NERDTreeToggle<CR>
- autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"""""""""""""""""""""""""""""""""""""""
+"
+"             nerdtree
+"
+"""""""""""""""""""""""""""""""""""""""
+set mouse=a
+autocmd StdinReadPre * let s:std_in=1
+autocmd vimenter * NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
- "code indented
- map ff gg=G<CR>
- imap fff <esc>gg=G<CR>
- imap ppp <esc>p
- set listchars=trail:-,tab:--
- set fileformats=unix
- nnoremap <leader>d :!~/.vim/dict <cword><CR>
+" NERDTrees File highlighting only the glyph/icon
+" test highlight just the glyph (icons) in nerdtree:
+autocmd filetype nerdtree highlight haskell_icon ctermbg=none ctermfg=Red guifg=#ffa500
+autocmd filetype nerdtree highlight html_icon ctermbg=none ctermfg=Red guifg=#ffa500
+autocmd filetype nerdtree highlight go_icon ctermbg=none ctermfg=Red guifg=#ffa500
 
+autocmd filetype nerdtree syn match haskell_icon ## containedin=NERDTreeFile
+" if you are using another syn highlight for a given line (e.g.
+" NERDTreeHighlightFile) need to give that name in the 'containedin' for this
+" other highlight to work with it
+autocmd filetype nerdtree syn match html_icon ## containedin=NERDTreeFile,html
+autocmd filetype nerdtree syn match go_icon ## containedin=NERDTreeFile
 
-set nocompatible
-filetype off
+" nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Plugin 'kchmck/vim-coffee-script'
-
-syntax enable
-filetype plugin indent on
+"code indented
+map ff gg=G<CR>
+map <esc><esc> :w<CR>
+imap fff <esc>gg=G<CR>
+imap ppp <esc>p
+set listchars=trail:-,tab:--
+set fileformats=unix
+nnoremap <leader>d :!~/.vim/dict <cword><CR>
