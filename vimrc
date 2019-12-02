@@ -32,6 +32,7 @@ Plugin 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" vim-devicons
 set encoding=utf8
 set guifont=DroidSansMono_Nerd_Font:h11
 """""""""""""""""""""""""""""""""""""""""
